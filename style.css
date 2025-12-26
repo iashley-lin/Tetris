@@ -40,7 +40,7 @@ canvas#tetris {
 }
 
 #start-button {
-    margin-top: 20px;
+    margin-top: 10px; /* Consistent margin */
     padding: 10px 15px;
     font-size: 16px;
     cursor: pointer;
@@ -48,8 +48,81 @@ canvas#tetris {
     color: white;
     border: none;
     border-radius: 5px;
+    width: 100%; /* Make it take full width */
+    font-weight: bold; /* Make it more prominent */
 }
 
 #start-button:hover {
     background-color: #45a049;
 }
+
+#pause-button {
+    margin-top: 10px; /* Spacing between buttons */
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #f44336; /* Red */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    width: 100%; /* Make it take full width */
+}
+
+#pause-button:hover {
+    background-color: #da190b;
+}
+
+.rules-container {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: #fff;
+    width: 90%;
+    max-width: 400px;
+}
+
+.rules-container ul {
+    padding-left: 20px;
+    text-align: left;
+}
+
+.mobile-controls {
+    display: none; /* Hidden by default on desktop */
+    margin-top: 20px;
+    width: 100%;
+    max-width: 300px;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.mobile-controls button {
+    font-size: 24px;
+    padding: 15px 20px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    user-select: none; /* Prevent text selection on double-tap */
+}
+
+/* Media Query for Mobile Devices */
+@media (max-width: 768px) {
+    body {
+        height: auto;
+        padding-top: 20px;
+    }
+    .game-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .info {
+        margin-left: 0;
+        margin-top: 15px;
+        width: 100%;
+    }
+    .mobile-controls {
+        display: flex; /* Shown on mobile */
+    }
+}
+

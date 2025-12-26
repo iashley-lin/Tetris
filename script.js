@@ -6,6 +6,12 @@ const scoreElement = document.getElementById('score');
 const startButton = document.getElementById('start-button');
 const pauseButton = document.getElementById('pause-button');
 
+// Mobile Controls
+const leftBtn = document.getElementById('left-btn');
+const rightBtn = document.getElementById('right-btn');
+const downBtn = document.getElementById('down-btn');
+const rotateBtn = document.getElementById('rotate-btn');
+
 const COLS = 12;
 const ROWS = 20;
 const BLOCK_SIZE = 20;
@@ -256,4 +262,32 @@ pauseButton.addEventListener('click', () => {
         // To restart the loop correctly after unpausing
         gameLoop();
     }
+});
+
+// Mobile Controls Event Listeners
+leftBtn.addEventListener('click', () => {
+    if (isGameOver || isPaused) return;
+    if (!collision(piece.x - 1, piece.y, piece.shape)) {
+        piece.move(-1, 0);
+        draw();
+    }
+});
+
+rightBtn.addEventListener('click', () => {
+    if (isGameOver || isPaused) return;
+    if (!collision(piece.x + 1, piece.y, piece.shape)) {
+        piece.move(1, 0);
+        draw();
+    }
+});
+
+downBtn.addEventListener('click', () => {
+    if (isGameOver || isPaused) return;
+    drop();
+});
+
+rotateBtn.addEventListener('click', () => {
+    if (isGameOver || isPaused) return;
+    piece.rotate();
+    draw();
 });
