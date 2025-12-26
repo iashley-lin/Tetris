@@ -5,9 +5,11 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    height: 100vh;
+    justify-content: flex-start; /* Align content to the top */
+    min-height: 100vh; /* Ensure body takes full height */
     margin: 0;
+    padding-top: 20px;
+    padding-bottom: 100px; /* Space for fixed mobile controls */
 }
 
 h1 {
@@ -109,20 +111,48 @@ canvas#tetris {
 /* Media Query for Mobile Devices */
 @media (max-width: 768px) {
     body {
-        height: auto;
+        min-height: 100vh; /* Ensure body takes full height */
         padding-top: 20px;
+        padding-bottom: 100px; /* Space for fixed mobile controls */
+        justify-content: flex-start; /* Align content to the top */
     }
     .game-container {
         flex-direction: column;
         align-items: center;
+        width: 95%; /* Adjust width for smaller screens */
     }
     .info {
         margin-left: 0;
         margin-top: 15px;
         width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    #start-button, #pause-button {
+        width: 80%; /* Adjust button width for mobile info panel */
+        max-width: 200px;
+    }
+    .rules-container {
+        width: 95%; /* Adjust width for smaller screens */
     }
     .mobile-controls {
         display: flex; /* Shown on mobile */
+        position: fixed; /* Fixed at the bottom */
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        max-width: none; /* Override max-width */
+        background-color: #eee; /* Background for controls */
+        padding: 10px 0;
+        box-shadow: 0 -2px 5px rgba(0,0,0,0.2); /* Shadow above controls */
+        z-index: 1000; /* Ensure controls are on top */
+        margin-top: 0; /* Remove margin-top as it's fixed */
+    }
+    .mobile-controls button {
+        flex: 1; /* Distribute space evenly */
+        margin: 0 5px; /* Spacing between buttons */
+        padding: 15px 0; /* Adjust padding */
     }
 }
-

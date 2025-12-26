@@ -221,6 +221,10 @@ function gameLoop(time = 0) {
 
 document.addEventListener('keydown', event => {
     if (isGameOver || isPaused) return;
+
+    if (event.key === 'ArrowLeft' || event.key === 'ArrowRight' || event.key === 'ArrowDown' || event.key === 'ArrowUp') {
+        event.preventDefault();
+    }
     
     if (event.key === 'ArrowLeft') {
         if (!collision(piece.x - 1, piece.y, piece.shape)) {
